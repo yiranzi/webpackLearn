@@ -3,29 +3,22 @@
  */
 import _ from "lodash";
 import './style.css'
-// import icon from './icon.png'
-console.log('1234');
-sun();
-function sun() {
-    console.log(_)
-    console.log(this)
-}
 
+import my from "../main1/sortFunc"
+my()
 function component() {
     var element = document.createElement('div');
+    var btn = document.createElement('button');
 
     // lodash 是由当前 script 脚本 import 导入进来的
     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
     element.classList.add('test');
-    // var myIcon = new Image();
-    // var myIcon2 = new Image();
-    // myIcon.src = icon;
-    // myIcon.src = '../src/main1/icon.png';
-    // myIcon2.src = './icon.png';
-    // element.appendChild(myIcon);
-    // element.appendChild(myIcon2);
+
+    btn.innerHTML = 'click';
+
+    element.appendChild(btn)
 
     return element;
 }
 
-document.body.appendChild(component());
+// document.body.appendChild(component());

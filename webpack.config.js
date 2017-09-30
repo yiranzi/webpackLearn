@@ -2,9 +2,22 @@
  * Created by wuchuck on 6/25/17.
  */
 var path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
     module.exports = {
-    entry: './src/main1/lodash_main.js',
+    entry: {
+        app: './src/main1/lodash_main.js',
+        print: './src/main2/print.js',
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'outPut M'
+        })
+    ],
+    devServer: {
+        contentBase: './dist'
+    },
+
     // entry: './src/lodash_main.js',
         // entry: {
 
@@ -14,7 +27,7 @@ var path = require('path');
     // },
     output: {
         // filename: 'bundle.js',
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
     module: {
@@ -24,18 +37,6 @@ var path = require('path');
                 use: [
                     'style-loader',
                     'css-loader'
-                ]
-            },
-            {
-                test: /\.(png|svg|jpg|gif)$/,
-                use: [
-                    'file-loader'
-                ]
-            },
-            {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
-                use: [
-                    'file-loader'
                 ]
             }
         ]
